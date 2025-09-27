@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!-- 🚨 IMPORTANT: The viewport meta tag ensures mobile responsiveness and correct scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <title>IWS Roll Call Manager</title>
+
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Use the Inter font globally for a modern look
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased">
+    <!-- 🚨 This is the root element where your entire React App.js will be rendered -->
+    <div id="root"></div>
+    
+    <!-- This is where your compiled JavaScript code (from src/index.js and src/App.js) is loaded -->
+    <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>
