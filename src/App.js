@@ -633,25 +633,28 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
         
         handleScanSuccess(decodedText);
 
-        setTimeout(() => {
-          if (html5QrCodeRef.current) {
+            setTimeout(() => {
+        if (html5QrCodeRef.current) {
             try {
-              html5QrCodeRef.current.resume();
-              setScannerState(prev => ({
-                ...prev,
-                isPaused: false
-              }));
+                html5QrCodeRef.current.resume();
+                setScannerState(prev => ({
+                    ...prev,
+                    isPaused: false
+                }));
             } catch (resumeError) {
-              console.error('Error resuming scanner:', resumeError);
+                console.error('Error resuming scanner:', resumeError);
             }
-          }
-        }, 3000);
-      };
-        
-      await html5Qrcode.start(
-        targetCameraId,
-        scannerConfig,
-        onScanSuccess,
+        }
+   }, 3000);
+}  // <-- This closes the onScanSuccess function definition. 
+   //     Do NOT put a semicolon here! (`;`)
+   //     Note: If onScanSuccess was an assigned variable (e.g., const onScanSuccess = () => {}), 
+   //     you would use a semicolon here. Given your structure, this looks like the correct closure.
+
+await html5Qrcode.start(
+    targetCameraId,
+    scannerConfig,
+    onScanSuccess,
         (errorMessage) => {
             if (errorMessage.includes('NotAllowedError') || 
                 errorMessage.includes('Permission denied') ||
@@ -1298,6 +1301,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
