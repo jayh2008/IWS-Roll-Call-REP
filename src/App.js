@@ -645,13 +645,7 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
                 console.error('Error resuming scanner:', resumeError);
             }
         }
-}, 3000);} 
-
-await html5Qrcode.start(
-    // ADD targetCameraId back here as the first parameter:
-    targetCameraId, 
-    scannerConfig,
-    onScanSuccess,
+}, 3000))} await html5Qrcode.start(targetCameraId, scannerConfig, onScanSuccess, 
     // ... rest of the parameters ...
         (errorMessage) => {
             if (errorMessage.includes('NotAllowedError') || 
@@ -1299,6 +1293,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
