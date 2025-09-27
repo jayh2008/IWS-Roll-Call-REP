@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, onAuthStateChanged, browserLocalPersistence } from 'firebase/auth'; 
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, serverTimestamp, getDocs, deleteDoc } from 'firebase/firestore'; 
-import { RefreshCw, Camera, List, CheckCircle, XCircle, Upload, Settings, Zap, AlertCircle, Trash2 } from 'lucide-react'; 
+import { RefreshCw, Camera, List, CheckCircle, XCircle, Upload, Settings, Zap, AlertCircle } from 'lucide-react'; 
 
 // Load the HTML5-QR-Code library for scanning via CDN script.
 const Html5QrcodeScannerScript = () => (
@@ -589,15 +589,9 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
   }, []);
 
   const initializeScanner = useCallback(async (cameraId = null) => {
-    if (!scannerRef.current || typeof window.Html5Qrcode === 'undefined') {
-      setScannerState(prev => ({
-        ...prev,
-        error: 'Scanner library not available',
-        isInitializing: false,
-        isRunning: false,
-      }));
-      return;
-    }
+    // ... function body ...
+    // ...
+}, [/* all existing dependencies, */ **scannerConfig**]); // <-- ADDED dependency
 
     stopScanner(); // Ensure previous instance is stopped
     
@@ -1300,4 +1294,5 @@ const App = () => {
 };
 
 export default App;
+
 
