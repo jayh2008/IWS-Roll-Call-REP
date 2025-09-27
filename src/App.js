@@ -646,8 +646,8 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
             }
           }
         }, 3000);
-      };
-
+      };
+        
       await html5Qrcode.start(
         targetCameraId,
         scannerConfig,
@@ -1298,6 +1298,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
