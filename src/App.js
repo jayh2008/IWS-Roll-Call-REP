@@ -646,10 +646,7 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
             }
         }
    }, 3000);
-}  // <-- This closes the onScanSuccess function definition. 
-   //     Do NOT put a semicolon here! (`;`)
-   //     Note: If onScanSuccess was an assigned variable (e.g., const onScanSuccess = () => {}), 
-   //     you would use a semicolon here. Given your structure, this looks like the correct closure.
+}  
 
 await html5Qrcode.start(
     targetCameraId,
@@ -1301,6 +1298,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
