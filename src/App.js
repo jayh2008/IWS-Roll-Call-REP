@@ -589,29 +589,33 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
   }, []);
 
   const initializeScanner = useCallback(async (cameraId = null) => {
-    // ... function body ...
-    // ...
-}, [dep1, dep2, scannerConfig]);
-
+    // 1. **ALL LOGIC MUST BE HERE**
     stopScanner(); // Ensure previous instance is stopped
-    
+
     try {
-      setScannerState(prev => ({
-        ...prev,
-        isInitializing: true,
-        error: null,
-        isRunning: false,
-      }));
+        setScannerState(prev => ({
+            ...prev,
+            isInitializing: true,
+            error: null,
+            isRunning: false,
+        }));
 
-      let targetCameraId = cameraId || selectedCameraId;
-      if (!targetCameraId) {
-        targetCameraId = await detectCameras();
-      }
+        let targetCameraId = cameraId || selectedCameraId;
+        if (!targetCameraId) {
+            // This is Line 608 from the previous log
+            targetCameraId = await detectCameras(); 
+        }
 
-      const html5Qrcode = new window.Html5Qrcode(
-        scannerRef.current.id,
-        { verbose: false }
-      );
+        const html5Qrcode = new window.Html5Qrcode(
+            scannerRef.current.id,
+            { verbose: false }
+        );
+        // ... rest of the scanner setup logic (onScanSuccess, html5Qrcode.start, etc.)
+
+    } catch (error) {
+        // ... error handling
+    }
+}, [/* all dependencies, including scannerConfig */]);
 
       const onScanSuccess = (decodedText) => {
         const now = Date.now();
@@ -1294,6 +1298,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
