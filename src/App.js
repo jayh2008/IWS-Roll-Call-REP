@@ -591,7 +591,7 @@ const EnhancedScannerView = ({ handleScanSuccess }) => {
   const initializeScanner = useCallback(async (cameraId = null) => {
     // ... function body ...
     // ...
-}, [/* all existing dependencies, */ **scannerConfig**]); // <-- ADDED dependency
+}, [dep1, dep2, scannerConfig]);
 
     stopScanner(); // Ensure previous instance is stopped
     
@@ -1294,5 +1294,6 @@ const App = () => {
 };
 
 export default App;
+
 
 
