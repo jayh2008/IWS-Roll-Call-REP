@@ -1,0 +1,33 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "attendees",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "isPresent",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "attendees",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "isPresent",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "lastCheckedIn",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
